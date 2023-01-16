@@ -122,6 +122,19 @@ export default class App extends Component {
               ])
             ),
           }));
+          if (prevStage === "Backlog") {
+            this.setState((prev) => ({
+              moveBackButtonDisabled: true,
+              moveForwardButtonDisabled: false,
+              deleteButtonDisabled: false,
+            }));
+          } else {
+            this.setState((prev) => ({
+              moveBackButtonDisabled: false,
+              moveForwardButtonDisabled: false,
+              deleteButtonDisabled: false,
+            }));
+          }
           break;
         case "Move Forward":
           newTasksList = this.state.tasks
@@ -137,6 +150,19 @@ export default class App extends Component {
               ])
             ),
           }));
+          if (nextStage === "Done") {
+            this.setState((prev) => ({
+              moveBackButtonDisabled: false,
+              moveForwardButtonDisabled: true,
+              deleteButtonDisabled: false,
+            }));
+          } else {
+            this.setState((prev) => ({
+              moveBackButtonDisabled: false,
+              moveForwardButtonDisabled: false,
+              deleteButtonDisabled: false,
+            }));
+          }
           break;
         case "Delete":
           newTasksList = this.state.tasks
