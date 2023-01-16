@@ -24,9 +24,28 @@ export default class Controls extends Component {
             placeholder="Select Task"
             onChange={(e) => this.props.setSelectedTask(e.target.value)}
           />
-          <button disabled={true}>Move Back</button>
-          <button disabled={true}>Move Forward</button>
-          <button disabled={true}>Delete</button>
+          <button
+            value="Move Back"
+            disabled={this.props.moveBackButtonDisabled}
+            onClick={(e) => this.props.handleAction(e.target.value)}
+          >
+            Move Back
+          </button>
+          <button
+            value="Move Forward"
+            disabled={this.props.moveForwardButtonDisabled}
+            onClick={(e) => this.props.handleAction(e.target.value)}
+          >
+            Move Forward
+          </button>
+
+          <button
+            value="Delete"
+            disabled={this.props.deleteButtonDisabled}
+            onClick={(e) => this.props.handleAction(e.target.value)}
+          >
+            Delete
+          </button>
         </div>
       </div>
     );
